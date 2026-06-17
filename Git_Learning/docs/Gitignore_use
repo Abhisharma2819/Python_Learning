@@ -1,0 +1,152 @@
+`.gitignore` tells Git which files and folders it should **ignore** and not track.
+
+### Example
+
+Suppose your project looks like this:
+
+```
+python-learning/
+│
+├── app.py
+├── .env
+├── venv/
+├── __pycache__/
+└── README.md
+```
+
+If your `.gitignore` contains:
+
+```gitignore
+.env
+venv/
+__pycache__/
+```
+
+Git will:
+
+* ✅ Track `app.py`
+* ✅ Track `README.md`
+* ❌ Ignore `.env`
+* ❌ Ignore everything inside `venv/`
+* ❌ Ignore `__pycache__/`
+
+---
+
+### Why use `.gitignore`?
+
+#### 1. Avoid uploading virtual environments
+
+A `venv` can contain thousands of files and can be recreated easily.
+
+```
+venv/
+```
+
+#### 2. Protect secrets
+
+Never commit API keys, passwords, or connection strings.
+
+```
+.env
+```
+
+Example `.env`:
+
+```
+DB_PASSWORD=my_secret_password
+API_KEY=abc123
+```
+
+#### 3. Ignore temporary files
+
+Python creates cache files automatically:
+
+```gitignore
+__pycache__/
+*.pyc
+```
+
+---
+
+### Important: `.gitignore` only affects untracked files
+
+If you've already committed a file, adding it to `.gitignore` later won't stop Git from tracking it.
+
+Example:
+
+```bash
+git add .env
+git commit -m "Added env file"
+```
+
+Then you add `.env` to `.gitignore`.
+
+Git will still track it.
+
+To stop tracking:
+
+```bash
+git rm --cached .env
+git commit -m "Stop tracking .env"
+```
+
+Now `.env` remains on your computer but won't be tracked anymore.
+
+---
+
+### Common Python `.gitignore`
+
+```gitignore
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment variables
+.env
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+```
+
+### Check what Git is ignoring
+
+```bash
+git status
+```
+
+Ignored files won't appear in the list.
+
+To see ignored files:
+
+```bash
+git status --ignored
+```
+
+For a Python learning repository, the most important entries are:
+
+```gitignore
+venv/
+__pycache__/
+*.pyc
+.env
+.vscode/
+```
+
+These alone prevent most common mistakes beginners make when pushing code to GitHub.
