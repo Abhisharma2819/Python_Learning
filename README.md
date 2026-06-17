@@ -105,13 +105,13 @@ Before running the examples, ensure you have:
 Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/python-learning.git
+git clone https://github.com/Abhisharma2819/Python_Learning.git
 ```
 
 Navigate to the project directory:
 
 ```bash
-cd python-learning
+cd python_learning
 ```
 
 Run any Python file:
